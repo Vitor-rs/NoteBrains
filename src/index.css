@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply m-0 font-sans antialiased;
+  }
+
+  #root {
+    @apply h-screen;
+  }
+}
+
+/* Tiptap Editor Styles */
+.tiptap {
+  @apply focus:outline-none;
+}
+
+.tiptap > * + * {
+  margin-top: 0.75em;
+}
+
+/* Headings */
+.tiptap h1 {
+  @apply text-3xl font-bold text-gray-900 dark:text-white;
+}
+
+.tiptap h2 {
+  @apply text-2xl font-semibold text-gray-900 dark:text-white;
+}
+
+.tiptap h3 {
+  @apply text-xl font-semibold text-gray-900 dark:text-white;
+}
+
+/* Paragraph */
+.tiptap p {
+  @apply text-gray-700 dark:text-gray-300 leading-relaxed;
+}
+
+/* Lists */
+.tiptap ul {
+  @apply list-disc pl-6;
+}
+
+.tiptap ol {
+  @apply list-decimal pl-6;
+}
+
+.tiptap li {
+  @apply text-gray-700 dark:text-gray-300;
+}
+
+.tiptap li p {
+  @apply m-0;
+}
+
+/* Task List */
+.tiptap ul[data-type="taskList"] {
+  @apply list-none pl-0;
+}
+
+.tiptap ul[data-type="taskList"] li {
+  @apply flex items-start gap-2;
+}
+
+.tiptap ul[data-type="taskList"] li > label {
+  @apply flex items-center mt-0.5;
+}
+
+.tiptap ul[data-type="taskList"] li > label input[type="checkbox"] {
+  @apply w-4 h-4 rounded border-gray-300 dark:border-gray-600 text-indigo-500 focus:ring-indigo-500 cursor-pointer accent-indigo-500;
+}
+
+.tiptap ul[data-type="taskList"] li > div {
+  @apply flex-1;
+}
+
+.tiptap ul[data-type="taskList"] li[data-checked="true"] > div p {
+  @apply line-through text-gray-400 dark:text-gray-500;
+}
+
+/* Blockquote */
+.tiptap blockquote {
+  @apply border-l-4 border-indigo-300 dark:border-indigo-700 pl-4 italic text-gray-600 dark:text-gray-400;
+}
+
+/* Code Block */
+.tiptap pre {
+  @apply bg-gray-900 dark:bg-gray-950 text-gray-100 rounded-lg p-4 overflow-x-auto font-mono text-sm;
+}
+
+.tiptap pre code {
+  @apply bg-transparent text-inherit p-0 rounded-none text-sm font-mono;
+}
+
+/* Inline Code */
+.tiptap code {
+  @apply bg-gray-100 dark:bg-gray-800 text-pink-600 dark:text-pink-400 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+/* Horizontal Rule */
+.tiptap hr {
+  @apply border-gray-200 dark:border-gray-700 my-6;
+}
+
+/* Image */
+.tiptap img {
+  @apply rounded-lg max-w-full h-auto my-4;
+}
+
+.tiptap img.ProseMirror-selectednode {
+  @apply ring-2 ring-indigo-500 ring-offset-2 dark:ring-offset-gray-900;
+}
+
+/* Link */
+.tiptap a {
+  @apply text-indigo-500 dark:text-indigo-400 underline decoration-indigo-300 dark:decoration-indigo-600 underline-offset-2 hover:text-indigo-600 dark:hover:text-indigo-300 transition-colors;
+}
+
+/* Highlight */
+.tiptap mark {
+  @apply bg-yellow-200 dark:bg-yellow-800/50 rounded-sm px-0.5;
+}
+
+/* Placeholder */
+.tiptap p.is-editor-empty:first-child::before {
+  @apply text-gray-400 dark:text-gray-600;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+.tiptap .is-empty::before {
+  @apply text-gray-400 dark:text-gray-600;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+/* Selection */
+.tiptap ::selection {
+  @apply bg-indigo-200/60 dark:bg-indigo-800/40;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  @apply w-1.5;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-300 dark:bg-gray-700 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-400 dark:bg-gray-600;
+}
+
+/* Tippy / Slash Commands */
+.tippy-box {
+  @apply bg-transparent border-none shadow-none;
+  max-width: 320px !important;
+}
+
+.tippy-content {
+  @apply p-0;
+}
