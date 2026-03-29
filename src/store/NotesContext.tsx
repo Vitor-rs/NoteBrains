@@ -21,6 +21,7 @@ interface NotesState {
 type Action =
   | { type: 'CREATE_NOTE' }
   | { type: 'UPDATE_NOTE'; id: string; content: JSONContent }
+  | { type: 'UPDATE_TAGS'; id: string; tags: string[] }
   | { type: 'DELETE_NOTE'; id: string }
   | { type: 'SET_ACTIVE'; id: string | null }
   | { type: 'SET_SEARCH'; query: string }
@@ -60,6 +61,7 @@ function notesReducer(state: NotesState, action: Action): NotesState {
           type: 'doc',
           content: [{ type: 'paragraph' }],
         },
+        tags: [],
         createdAt: Date.now(),
         updatedAt: Date.now(),
       }
@@ -76,6 +78,16 @@ function notesReducer(state: NotesState, action: Action): NotesState {
         notes: state.notes.map((n) =>
           n.id === action.id
             ? { ...n, content: action.content, title, updatedAt: Date.now() }
+            : n
+        ),
+      }
+    }
+    case 'UPDATE_TAGS': {
+      return {
+        ...state,
+        notes: state.notes.map((n) =>
+          n.id === action.id
+            ? { ...n, tags: action.tags, updatedAt: Date.now() }
             : n
         ),
       }

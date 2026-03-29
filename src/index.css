@@ -163,6 +163,16 @@
   @apply bg-gray-400 dark:bg-gray-600;
 }
 
+/* Sigma.js / Knowledge Graph */
+.sigma-container {
+  background: transparent !important;
+}
+
+.react-sigma {
+  height: 100%;
+  width: 100%;
+}
+
 /* Tippy / Slash Commands */
 .tippy-box {
   @apply bg-transparent border-none shadow-none;

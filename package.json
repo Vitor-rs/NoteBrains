@@ -11,6 +11,8 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.7.6",
+    "@react-sigma/core": "^5.0.6",
+    "@react-sigma/layout-forceatlas2": "^5.0.6",
     "@tiptap/extension-code-block-lowlight": "^3.21.0",
     "@tiptap/extension-color": "^3.21.0",
     "@tiptap/extension-highlight": "^3.21.0",
@@ -26,10 +28,15 @@
     "@tiptap/starter-kit": "^3.21.0",
     "@tiptap/suggestion": "^3.21.0",
     "clsx": "^2.1.1",
+    "graphology": "^0.26.0",
+    "graphology-layout": "^0.6.1",
+    "graphology-layout-forceatlas2": "^0.10.1",
+    "graphology-types": "^0.24.8",
     "lowlight": "^3.3.0",
     "lucide-react": "^1.7.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
+    "sigma": "^3.0.2",
     "tippy.js": "^6.3.7"
   },
   "devDependencies": {

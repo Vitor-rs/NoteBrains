@@ -6,6 +6,7 @@ import { extensions } from './extensions'
 import { suggestion } from './SlashCommand/suggestion'
 import { MenuBar } from './MenuBar'
 import { EditorBubbleMenu } from './EditorBubbleMenu'
+import { TagsBar } from './TagsBar'
 import { useNotes } from '../../store/NotesContext'
 import type { JSONContent } from '@tiptap/react'
 
@@ -91,6 +92,7 @@ export function NoteEditor() {
   return (
     <div className="flex-1 flex flex-col bg-white dark:bg-gray-900 overflow-hidden">
       <MenuBar editor={editor} />
+      <TagsBar />
       <div className="flex-1 overflow-y-auto">
         <EditorBubbleMenu editor={editor} />
         <EditorContent editor={editor} />

@@ -1,4 +1,4 @@
-import { Plus, Search, Sun, Moon, PanelLeftClose, PanelLeft, Brain } from 'lucide-react'
+import { Plus, Search, Sun, Moon, PanelLeftClose, PanelLeft, Brain, Share2 } from 'lucide-react'
 import { useNotes } from '../../store/NotesContext'
 import { NoteItem } from './NoteItem'
 import { cn } from '../../lib/utils'
@@ -8,9 +8,11 @@ interface SidebarProps {
   onToggleTheme: () => void
   isOpen: boolean
   onToggle: () => void
+  showGraph: boolean
+  onToggleGraph: () => void
 }
 
-export function Sidebar({ isDark, onToggleTheme, isOpen, onToggle }: SidebarProps) {
+export function Sidebar({ isDark, onToggleTheme, isOpen, onToggle, showGraph, onToggleGraph }: SidebarProps) {
   const { filteredNotes, activeNoteId, searchQuery, dispatch } = useNotes()
 
   return (
@@ -56,14 +58,26 @@ export function Sidebar({ isDark, onToggleTheme, isOpen, onToggle }: SidebarProp
             </div>
           </div>
 
-          {/* New Note */}
-          <div className="px-3 py-3">
+          {/* New Note + Graph */}
+          <div className="px-3 py-3 space-y-2">
             <button
               onClick={() => dispatch({ type: 'CREATE_NOTE' })}
               className="w-full flex items-center gap-2 px-3 py-2 rounded-lg bg-indigo-500 hover:bg-indigo-600 text-white text-sm font-medium transition-colors"
             >
               <Plus className="w-4 h-4" />
               Nova Nota
+            </button>
+            <button
+              onClick={onToggleGraph}
+              className={cn(
+                'w-full flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
+                showGraph
+                  ? 'bg-emerald-500/10 text-emerald-500 border border-emerald-500/30'
+                  : 'bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700'
+              )}
+            >
+              <Share2 className="w-4 h-4" />
+              Knowledge Graph
             </button>
           </div>
 
